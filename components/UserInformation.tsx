@@ -11,7 +11,7 @@ async function UserInformation() {
   const imageUrl = user?.imageUrl;
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center bg-white mr-6 rounded-lg border py-4">
       <Avatar>
         {user?.id ? (
           <AvatarImage src={imageUrl} />
@@ -46,6 +46,18 @@ async function UserInformation() {
           </Button>
         </div>
       </SignedOut>
+
+      <hr className="w-full border-gray-200 my-5" />
+
+      <div className="flex justify-between w-full px-4 text-sm">
+        <p className="font-semibold text-gray-400">Posts</p>
+        <p className="text-blue-400">0</p>
+      </div>
+
+      <div className="flex justify-between w-full px-4 text-sm">
+        <p className="font-semibold text-gray-400">Comments</p>
+        <p className="text-blue-400">0</p>
+      </div>
     </div>
   );
 }

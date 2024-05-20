@@ -1,0 +1,6 @@
+next.js
+ShadCN
+TailWindCSS
+Azure Cosmos DB (quinnqp)
+MongoDB
+Vercel
