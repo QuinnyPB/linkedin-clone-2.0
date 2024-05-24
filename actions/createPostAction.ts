@@ -1,5 +1,8 @@
 "use server";
 
+import { AddPostRequestBody } from "@/app/api/posts/route";
+import { Post } from "@/mongodb/models/post";
+import { IUser } from "@/types/user";
 import { currentUser } from "@clerk/nextjs/server";
 
 export default async function createPostAction(formData: FormData) {
@@ -18,10 +21,35 @@ export default async function createPostAction(formData: FormData) {
   }
 
   // define user
+  const userDB: IUser = {
+    userId: user.id,
+    userImage: user.imageUrl,
+    firstName: user.firstName || "",
+    lastName: user.lastName || "",
+  };
 
-  // upload image
+  try {
+    if (image.size > 0) {
+      // 1. upload image if exists - MS Blob Storage
+      // 2. create post in db with image
+      // const body: AddPostRequestBody = {
+      //   user: userDB,
+      //   text: postInput,
+      //   imageUrl: image_url,
+      // };
+      // await Post.create(body);
+    } else {
+      // 1. create post in db without iamge
+      const body: AddPostRequestBody = {
+        user: userDB,
+        text: postInput,
+      };
 
-  // create post in db
+      await Post.create(body);
+    }
+  } catch (error) {
+    console.log("Error with uploading Post to DB: ", error);
+  }
 
   // revalidate path ('/')
 }
