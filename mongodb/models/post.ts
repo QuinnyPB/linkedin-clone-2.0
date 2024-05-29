@@ -1,6 +1,7 @@
 import { IUser } from "@/types/user";
 import mongoose, { Schema, Document, models, Model } from "mongoose";
 import { Comment, IComment, ICommentBase } from "./comment";
+import connectDB from "../db";
 
 export interface IPostBase {
   user: IUser;
@@ -114,10 +115,10 @@ PostSchema.statics.getAllPosts = async function () {
     // prevents server-side errors with handling this
     return posts.map((post: IPostDocument) => ({
       ...post,
-      _id: post._id.toString(),
+      _id: post._id?.toString(),
       comments: post.comments?.map((comment: IComment) => ({
         ...comment,
-        _id: comment._id.toString(),
+        _id: comment._id?.toString(),
       })),
     }));
   } catch (error) {

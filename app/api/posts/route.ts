@@ -11,18 +11,21 @@ export interface AddPostRequestBody {
 }
 
 export async function POST(request: Request) {
-  auth().protect(); // Protect the route with clerk auth
+  // auth().protect(); // Protect the route with clerk auth
+  const { user, text, imageUrl }: AddPostRequestBody = await request.json();
 
   try {
+    console.log("connecting to db");
     await connectDB(); // connect to the database
-
-    const { user, text, imageUrl }: AddPostRequestBody = await request.json();
+    console.log("configuring request body");
 
     const postData: IPostBase = {
       user,
       text,
       ...(imageUrl && { imageUrl }),
     };
+
+    console.log("sending post...");
     const post = await Post.create(postData); // adds post to db
     return NextResponse.json({ message: "Post created successfully", post });
   } catch (error) {
@@ -37,7 +40,7 @@ export async function GET(request: Request) {
   try {
     await connectDB(); // connect to the database
 
-    const posts = Post.getAllPosts();
+    const posts = await Post.getAllPosts();
     return NextResponse.json({ posts });
   } catch (error) {
     return NextResponse.json(

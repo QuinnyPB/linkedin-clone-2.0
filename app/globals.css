@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 /* custom styling */
 @layer components {
   .icon {
@@ -14,6 +18,10 @@
 
   .icon p {
     @apply text-gray-400 text-xs;
+  }
+
+  .postButton {
+    @apply flex justify-center flex-1;
   }
 }
 

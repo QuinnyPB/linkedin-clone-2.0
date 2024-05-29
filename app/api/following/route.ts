@@ -1,5 +1,5 @@
 import connectDB from "@/mongodb/db";
-import { Folowers } from "@/mongodb/models/followers";
+import { Followers } from "@/mongodb/models/followers";
 import { NextResponse } from "next/server";
 
 // GET function for all followers
@@ -26,7 +26,7 @@ export async function GET(request: Request) {
     return NextResponse.json(followers);
   } catch (error) {
     return NextResponse.json(
-      { error: "An error occurred while fetching followers" },
+      { error: "An error occurred while fetching following" },
       { status: 500 }
     );
   }
