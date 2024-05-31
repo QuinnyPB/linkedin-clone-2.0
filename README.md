@@ -1,6 +1,7 @@
-AUUTHOR'S NOTE:
+AUTHOR'S NOTE:
 This project was to be (and is) deployed on Vercel. However due to slow API response time the deployment is unable to be loaded due to limitations imposed on serverless function load time. As such, a video demonstration of the application is provided, along with this repository. For the demo, please find the included "linkedin-clone-2.0-demo.webm" video file. 
 
+This project is a demonstration of my skills and knowledge in development with Typescript, TailWindCSS Azure, ShadCN, MongoDB, and Vercel.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
