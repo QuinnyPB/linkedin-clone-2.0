@@ -1,5 +1,5 @@
 AUUTHOR'S NOTE:
-This project was to be (and is) deployed on Vercel. However due to slow API response time the deployment is unable to be loaded due to limitations imposed on serverless function load time. As such, a video demonstration of the application is provided, along with this repository.
+This project was to be (and is) deployed on Vercel. However due to slow API response time the deployment is unable to be loaded due to limitations imposed on serverless function load time. As such, a video demonstration of the application is provided, along with this repository. For the demo, please find the included "linkedin-clone-2.0-demo.webm" video file. 
 
 
 
