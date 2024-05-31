@@ -8,9 +8,11 @@ import { revalidatePath } from "next/cache";
 export default async function deletePostAction(postId: string) {
   const user = await currentUser();
 
-  const body: DeletePostRequestBody = {
-    userId: user.id,
-  };
+  if (user) {
+    const body: DeletePostRequestBody = {
+      userId: user.id,
+    };
+  }
 
   if (!user?.id) {
     throw new Error("User not authenticated");

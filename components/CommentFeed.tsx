@@ -8,12 +8,12 @@ import ReactTimeago from "react-timeago";
 function CommentFeed({ post }: { post: IPostDocument }) {
   const { user } = useUser();
 
-  console.log(user);
+  // key property in map() used to be just _id, without 'as string'
 
   return (
     <div className="space-y-2 mt-3">
       {post?.comments?.map((comment) => (
-        <div key={comment._id} className="flex space-x-1">
+        <div key={comment._id as string} className="flex space-x-1">
           <Avatar>
             <AvatarImage src={comment.user.userImage} />
             <AvatarFallback>

@@ -4,20 +4,23 @@ import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { IPostDocument } from "@/mongodb/models/post";
 
-async function UserInformation({ posts }: { post: IPostDocument[] }) {
+// AUTHOR NOTE: 'post' property use to be 'posts'
+
+async function UserInformation({ post }: { post: IPostDocument[] }) {
   const user = await currentUser();
 
   const firstName = user?.firstName;
   const lastName = user?.lastName;
   const imageUrl = user?.imageUrl;
 
-  const userPosts = posts?.filter((post) => post.user.userId === user?.id);
+  const userPosts = post?.filter((post: any) => post.user.userId === user?.id);
 
   // flatmapping should be done on server/database side components in production
   // flatmap -> flattens an array of multi-dimensions into an 1 dimensional array
-  const userComments = posts.flatMap((post) => {
-    posts?.comments?.filter((comment) => comment.user.userId === user?.id) ||
-      [];
+  const userComments = post.flatMap((post: any) => {
+    post?.comments?.filter(
+      (comment: any) => comment.user.userId === user?.id
+    ) || [];
   });
 
   return (

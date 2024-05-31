@@ -16,6 +16,7 @@ function Post({ post }: { post: IPostDocument }) {
   const { user } = useUser();
 
   const isAuthor = user?.id === post.user.userId;
+  const postID: any = post._id; // avoid type of unknown error
 
   return (
     <div className="bg-white rounded-md border">
@@ -56,7 +57,7 @@ function Post({ post }: { post: IPostDocument }) {
               variant="outline"
               onClick={() => {
                 // delete post function
-                const promise = deletePostAction(post._id);
+                const promise = deletePostAction(postID);
 
                 // Toast
                 toast.promise(promise, {
@@ -88,7 +89,7 @@ function Post({ post }: { post: IPostDocument }) {
       </div>
 
       {/* PostOptions */}
-      <PostOptions postId={post._id} post={post} />
+      <PostOptions postId={postID} post={post} />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { IUser } from "@/types/user";
 import mongoose, { Schema, Document, models, Model } from "mongoose";
 import { Comment, IComment, ICommentBase } from "./comment";
-import connectDB from "../db";
 
 export interface IPostBase {
   user: IUser;
@@ -15,7 +14,6 @@ export interface IPost extends IPostBase, Document {
   createdAt: Date;
   updatedAt: Date;
 }
-
 // methods for post instances
 interface IPostMethods {
   likePost(userId: string): Promise<void>;

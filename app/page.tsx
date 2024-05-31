@@ -5,9 +5,10 @@ import Widget from "@/components/Widget";
 import connectDB from "@/mongodb/db";
 import { Post } from "@/mongodb/models/post";
 import { SignedIn } from "@clerk/nextjs";
-import Image from "next/image";
 
 export const revalidate = 0;
+
+// AUTHORS NOTE: UserInformations 'post' property use to be 'posts'
 
 export default async function Home() {
   await connectDB();
@@ -16,7 +17,7 @@ export default async function Home() {
   return (
     <main className="grid grid-cols-8 mt-5 sm:px-5">
       <section className="hidden md:inline md:col-span-2">
-        <UserInformation posts={posts} />
+        <UserInformation post={posts} />
       </section>
 
       <section className="col-span-full md:col-span-6 xl:col-span-4 xl:max-w-xl mx-auto w-full">
