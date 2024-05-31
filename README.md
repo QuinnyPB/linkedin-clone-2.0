@@ -1,3 +1,8 @@
+AUUTHOR'S NOTE:
+This project was to be (and is) deployed on Vercel. However due to slow API response time the deployment is unable to be loaded due to limitations imposed on serverless function load time. As such, a video demonstration of the application is provided, along with this repository.
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
